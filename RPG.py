@@ -3,49 +3,50 @@ from sys import exit
 
 
 class Person(object):
-    def __init__(self, name, hit_points, strength, money):
-            self.name = name
+    def __init__(self, hit_points, strength, money):
             self.hit_poitns = hit_points
             self.strength  strength
             self.money = money
 
 
 class Hero(Person):
-    axe = False
-    pickaxe = False
-    bow = False
-    fishingrod = False
 
-    Hero = Person(Jacek, 0, 0, 0)
-    self.food = 0
+    hero = Person(0, 0, 0)
+        food = 0
+        axe = False
+        pickaxe = False
+        bow = False
+        fishingrod = False
 
+
+    def equip():
         if axe == True:
             strength += 10
         elif pickaxe == True:
             strength += 5
-        elif Bow == True:
+        elif bow == True:
             strength += 2
         else:
             pass
 
 
-class Monster(Person):
-    monster1 = Person(Goblin 0, 0, 0)
+#class Monster(Person):
+    goblin = Person(0, 0, 0)
 
 
-class Animall(Person):
-    animall1 = Person(Deer 0, 0, 0)
+#class Animall(Person):
+    deer = Person(0, 0, 0)
 
 
-class Fish(Person):
-    fish1 = Person(Herring 0, 0, 0)
+#class Fish(Person):
+    herring = Person(0, 0, 0)
 
 
 
-class Shopkeeper(Person):
-    alive = True
-    shopkeeper = Person(Sigfrid, 0, 0, 0)
+#class Shopkeeper(Person):
 
+    Sigfrid = Person(0, 0, 0)
+        alive = True
 
     def shop_greating():
         print("""
@@ -129,7 +130,7 @@ class Lake(Location):
 class Shop(Location):
 
     def enter(self):
-        if Shopkeeper.alive = True:
+        if Sigfrid.alive == True:
             shop_greating()
         else:
             print("""
@@ -169,4 +170,5 @@ class Battle(Engine):
     damage2 = Person().strength
     def battle(hp1, damage1, hp2, damage2):
         while hp1  > 0 or hp2 > 0:
-            hp1 -= damage2 and hp2 -= damage1
+            hp1 -= damage2
+            hp2 -= damage1
