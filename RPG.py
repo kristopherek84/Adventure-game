@@ -3,24 +3,27 @@ from sys import exit
 
 
 class Person(object):
-    def __init__(self, name, hit_points, strength):
-        pass
+    def __init__(self, name, hit_points, strength, money):
+            self.name = name
+            self.hit_poitns = hit_points
+            self.strength  strength
+            self.money = money
 
 
 class Hero(Person):
-
-
     axe = False
     pickaxe = False
     bow = False
     fishingrod = False
 
+    Hero = Person(Jacek, 0, 0, 0)
+    self.food = 0
 
-    self.name = Jacek
-    self.hitopoins = 0
-    self.strength = 0
-    self.food = 10
-    self.money = 15
+#    self.name = Jacek
+#    self.hitopoins = 0
+#    self.strength = 0
+#    self.food = 10
+#    self.money = 15
 
         if axe == True:
             strength += 10
@@ -33,33 +36,37 @@ class Hero(Person):
 
 
 class Monster(Person):
-    self.name = Goblin
-    self.hitopoins = 0
-    self.strength = 0
-    self.food = 10
-    self.money = 15
+    monster1 = Person(Goblin 0, 0, 0)
+    # self.name = Goblin
+    # self.hitopoins = 0
+    # self.strength = 0
+    # self.food = 10
+    # self.money = 15
 
 class Animall(Person):
-    self.name = Deer
-    self.hitopoins = 0
-    self.strength = 0
-    self.food = 10
-    self.money = 15
+    animall1 = Person(Deer 0, 0, 0)
+    # self.name = Deer
+    # self.hitopoins = 0
+    # self.strength = 0
+    # self.food = 10
+    # self.money = 15
 
 class Fish(Person):
-    self.name = Crab
-    self.hitopoins = 0
-    self.strength = 0
-    self.food = 10
-    self.money = 15
+    fish1 = Person(Herring 0, 0, 0)
+    # self.name = Crab
+    # self.hitopoins = 0
+    # self.strength = 0
+    # self.food = 10
+    # self.money = 15
 
 
 class Shopkeeper(Person):
-    self.name = Sigfrid
-    self.hitopoins = 0
-    self.strength = 0
-    self.food = 10
-    self.money = 15
+    shopkeeper = Person(Sigfrid, 0, 0, 0)
+    # self.name = Sigfrid
+    # self.hitopoins = 0
+    # self.strength = 0
+    # self.food = 10
+    # self.money = 15
 
 
     def shop_greating():
@@ -155,5 +162,5 @@ class Battle(Engine):
     damage1 = Person(Hero).strength
     damage2 = Person().strength
     def battle(hp1, damage1, hp2, damage2):
-        while hp1 or hp2 > 0:
+        while hp1  > 0 or hp2 > 0:
             hp1 -= damage2 and hp2 -= damage1
