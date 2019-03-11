@@ -19,12 +19,6 @@ class Hero(Person):
     Hero = Person(Jacek, 0, 0, 0)
     self.food = 0
 
-#    self.name = Jacek
-#    self.hitopoins = 0
-#    self.strength = 0
-#    self.food = 10
-#    self.money = 15
-
         if axe == True:
             strength += 10
         elif pickaxe == True:
@@ -37,36 +31,20 @@ class Hero(Person):
 
 class Monster(Person):
     monster1 = Person(Goblin 0, 0, 0)
-    # self.name = Goblin
-    # self.hitopoins = 0
-    # self.strength = 0
-    # self.food = 10
-    # self.money = 15
+
 
 class Animall(Person):
     animall1 = Person(Deer 0, 0, 0)
-    # self.name = Deer
-    # self.hitopoins = 0
-    # self.strength = 0
-    # self.food = 10
-    # self.money = 15
+
 
 class Fish(Person):
     fish1 = Person(Herring 0, 0, 0)
-    # self.name = Crab
-    # self.hitopoins = 0
-    # self.strength = 0
-    # self.food = 10
-    # self.money = 15
+
 
 
 class Shopkeeper(Person):
+    alive = True
     shopkeeper = Person(Sigfrid, 0, 0, 0)
-    # self.name = Sigfrid
-    # self.hitopoins = 0
-    # self.strength = 0
-    # self.food = 10
-    # self.money = 15
 
 
     def shop_greating():
@@ -124,26 +102,54 @@ class Death(Location):
         exit(1)
 
 class Forest(Location):
-    pass
+
+    def enter(self):
+        print("""
+        You enter a forest. You know that it is quite peacefull.
+        But lately when you traveled to the forest you seem to notice an
+        increased number of goblins in here. Forest is good hunting grounds
+        but could also have an encounter with some type of monster if you
+        wont be carefull
+        """)
 
 class Dungeon(Location):
-    pass
+
+    def enter(self):
+        print("""
+        As you traveled throgh well known forest. You noticed something which
+        you didnt see before. There is a cave entrence in a place where was
+        a solid rock before. Do you decide to come in?(Y/N)
+        """)
 
 class Lake(Location):
-    pass
+
+    def enter(self):
+        print("You went for a stroll besiede the lakeshore.")
 
 class Shop(Location):
-    pass
+
+    def enter(self):
+        if Shopkeeper.alive = True:
+            shop_greating()
+        else:
+            print("""
+            The shop is demolished. You dont want to spend here to
+            much time. You throw a glimpse on dead shopkeeper corpse and regret
+            actions which lead to slaying this poor fellow.
+            """)
+            enter(Start)
+
 
 class Start(Location):
+
+
 
     def enter(self):
         print("""
         You stand before your little house. What do you want to do?
         1. Go to the shop?
         2. Go to the lake?
-        3. Go to the shop?
-        4. Go to the dungeon?
+        3. Go to the forest?
         Or You just need help?(type help)
         """)
 
