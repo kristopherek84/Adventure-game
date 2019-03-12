@@ -5,18 +5,18 @@ from sys import exit
 class Person(object):
     def __init__(self, hit_points, strength, money):
             self.hit_poitns = hit_points
-            self.strength  strength
+            self.strength = strength
             self.money = money
 
 
 class Hero(Person):
 
     hero = Person(0, 0, 0)
-        food = 0
-        axe = False
-        pickaxe = False
-        bow = False
-        fishingrod = False
+    food = 0
+    axe = False
+    pickaxe = False
+    bow = False
+    fishingrod = False
 
 
     def equip():
@@ -43,10 +43,10 @@ class Hero(Person):
 
 
 
-#class Shopkeeper(Person):
+class Shopkeeper(Person):
 
     Sigfrid = Person(0, 0, 0)
-        alive = True
+    alive = True
 
     def shop_greating():
         print("""
@@ -58,27 +58,30 @@ class Hero(Person):
         5. or maybe some food?-  2 gp
         """)
 
-            buy = input("<")
+        buy = input("<")
 
-            if buy == "1" and money > 10:
-                fishingrod = True,
-                money -= 10
-            elif buy == "2" and money > 20:
-                bow = True,
-                money -= 20
-            elif buy == "3" and money > 50:
-                pickaxe = True,
-                money -= 50
-            elif buy == "4" and money > 100:
-                axe = True,
-                money -= 100
-            elif buy == "5" and money > 2:
-                food += 5
-            elif buy == "steal"
-            elif buy == "attack" or "kill"
-            elif buy == "run"
+        if buy == "1" and money > 10:
+            fishingrod = True,
+            money -= 10
+        elif buy == "2" and money > 20:
+            bow = True,
+            money -= 20
+        elif buy == "3" and money > 50:
+             pickaxe = True,
+             money -= 50
+        elif buy == "4" and money > 100:
+            axe = True,
+            money -= 100
+        elif buy == "5" and money > 2:
+            food += 5
+        elif buy == "steal":
+            pass
+        elif buy == "attack" or "kill":
+            pass
+        elif buy == "run":
+            pass
 
-            else:
+        else:
             print("I dont understand")
 
 
@@ -98,9 +101,9 @@ class Death(Location):
         "Your lucky that's only a game.Though you probably also suck in life"
         ]
 
-    def enter(self):
-        print(Death.motivation[randint(0, len(self.motivation)-1)])
-        exit(1)
+def enter(self):
+    print(Death.motivation[randint(0, len(self.motivation)-1)])
+    exit(1)
 
 class Forest(Location):
 
@@ -162,13 +165,13 @@ class Engine(object):
     pass
 
 
-class Battle(Engine):
+#class Battle(Engine):
 
-    hp1 == Person(Hero).hit_points
-    hp2 == Person().hit_points
-    damage1 = Person(Hero).strength
-    damage2 = Person().strength
-    def battle(hp1, damage1, hp2, damage2):
-        while hp1  > 0 or hp2 > 0:
-            hp1 -= damage2
-            hp2 -= damage1
+#    hp1 == Person(Hero).hit_points
+#    hp2 == Person().hit_points
+#    damage1 = Person(Hero).strength
+#    damage2 = Person().strength
+#    def battle(hp1, damage1, hp2, damage2):
+#        while hp1  > 0 or hp2 > 0:
+#            hp1 -= damage2,
+#            hp2 -= damage1
