@@ -1,4 +1,4 @@
-from random import random
+import random
 from sys import exit
 
 
@@ -9,17 +9,17 @@ class Person(object):
             self.money = money
 
 
-class Hero(Person):
 
-    hero = Person(0, 0, 0)
+
+class Hero(Person):
+    money = 100
     food = 0
     axe = False
     pickaxe = False
     bow = False
     fishingrod = False
 
-
-    def equip():
+    def equip(self):
         if axe == True:
             strength += 10
         elif pickaxe == True:
@@ -31,24 +31,22 @@ class Hero(Person):
 
 
 #class Monster(Person):
-    goblin = Person(0, 0, 0)
+goblin = Person(0, 0, 0)
 
 
 #class Animall(Person):
-    deer = Person(0, 0, 0)
+deer = Person(0, 0, 0)
 
 
 #class Fish(Person):
-    herring = Person(0, 0, 0)
+herring = Person(0, 0, 0)
 
 
 
 class Shopkeeper(Person):
-
-    Sigfrid = Person(0, 0, 0)
     alive = True
 
-    def shop_greating():
+    def shop_greating(self, Hero):
         print("""
         Greeting traveller. What do you wish to have?
         1.FishingRod          - 10 gp
@@ -57,30 +55,27 @@ class Shopkeeper(Person):
         4.Axe                 - 100 gp
         5. or maybe some food?-  2 gp
         """)
-
         buy = input("<")
-
-        if buy == "1" and money > 10:
-            fishingrod = True,
-            money -= 10
-        elif buy == "2" and money > 20:
-            bow = True,
-            money -= 20
-        elif buy == "3" and money > 50:
-             pickaxe = True,
-             money -= 50
-        elif buy == "4" and money > 100:
-            axe = True,
-            money -= 100
-        elif buy == "5" and money > 2:
-            food += 5
+        if (buy == "1" and Hero.money > 10):
+            Hero.fishingrod = True
+            Hero.money -= 10
+        elif (buy == "2" and Hero.money > 20):
+            Hero.bow = True
+            Hero.money -= 20
+        elif (buy == "3" and Hero.money > 50):
+            Hero.pickaxe = True
+            Hero.money -= 50
+        elif (buy == "4" and Hero.money > 100):
+            Hero.axe = True
+            Hero.money -= 100
+        elif (buy == "5" and Hero.money > 2):
+            Hero.food += 5
         elif buy == "steal":
             pass
         elif buy == "attack" or "kill":
             pass
         elif buy == "run":
             pass
-
         else:
             print("I dont understand")
 
@@ -90,9 +85,9 @@ class Location(object):
     pass
 
 
-class Death(Location):
 
-     motivation = [
+class Death(Location):
+    motivation = [
         "You died. You kinda suck at this.",
         "Such a luser",
         "You're worse than your Dad's jokes."
@@ -101,9 +96,12 @@ class Death(Location):
         "Your lucky that's only a game.Though you probably also suck in life"
         ]
 
-def enter(self):
-    print(Death.motivation[randint(0, len(self.motivation)-1)])
-    exit(1)
+    def enter(self):
+        print(Death.motivation[random.randint(0, len(self.motivation)-1)])
+        exit(1)
+
+
+
 
 class Forest(Location):
 
@@ -116,6 +114,8 @@ class Forest(Location):
         wont be carefull
         """)
 
+
+
 class Dungeon(Location):
 
     def enter(self):
@@ -125,16 +125,21 @@ class Dungeon(Location):
         a solid rock before. Do you decide to come in?(Y/N)
         """)
 
+dungeon = Dungeon()
+
 class Lake(Location):
 
     def enter(self):
         print("You went for a stroll besiede the lakeshore.")
 
-class Shop(Location):
 
-    def enter(self):
-        if Sigfrid.alive == True:
-            shop_greating()
+
+class Shop(Location):
+    Sigfrid = Shopkeeper(0,0,0)
+
+    def enter(self, Hero):
+        if self.Sigfrid.alive == True:
+            self.Sigfrid.shop_greating(Hero)
         else:
             print("""
             The shop is demolished. You dont want to spend here to
@@ -144,9 +149,9 @@ class Shop(Location):
             enter(Start)
 
 
+
+
 class Start(Location):
-
-
 
     def enter(self):
         print("""
@@ -156,9 +161,25 @@ class Start(Location):
         3. Go to the forest?
         Or You just need help?(type help)
         """)
-
+        hero = Hero(0, 0, 0)
         direction = input("<")
+        if direction == "1":
+            shop = Shop()
+            shop.enter(hero)
+        elif direction == "2":
+            lake = Lake()
+            lake.enter()
+        elif direction == "3":
+            forest = Forest()
+            forest.enter()
+        else:
+            death = Death()
+            death.enter()
 
+
+
+start = Start()
+start.enter()
 
 
 class Engine(object):
